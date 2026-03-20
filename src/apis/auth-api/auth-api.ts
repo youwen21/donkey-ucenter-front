@@ -38,15 +38,6 @@ import { httpApiClient } from '../httpbase'
  */
 export const authApi = {
   /**
-   * 用户注册
-   * @param form - 注册表单数据
-   * @returns API 响应，data 字段为登录响应数据
-   */
-  register: async (form: AuthForm): Promise<APIResponse<LoginResponse>> => {
-    return httpApiClient.post<APIResponse<LoginResponse>>('/api/auth/register', form)
-  },
-
-  /**
    * 用户登录
    * @param form - 登录表单数据
    * @returns API 响应，data 字段为登录响应数据

@@ -46,7 +46,7 @@
 import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import type { AuthForm } from '@/apis/auth-api/types'
-import { authApi } from '@/apis/auth-api/auth-api'
+import { userPublicApi } from '@/apis/user-api/user-public-api'
 import { toastError, toastSuccess, toastException } from '@/utils/toast'
 
 const router = useRouter()
@@ -68,7 +68,7 @@ const onSubmit = async () => {
 
   loading.value = true
   try {
-    const res = await authApi.register(form)
+    const res = await userPublicApi.register(form)
     // 假设后端返回格式为 { code, message, data }
     if ((res as any).code === 0 || (res as any).code === 200) {
       await toastSuccess('注册成功')
